@@ -73,5 +73,7 @@ RUN GH_RUNNER_VERSION=${GH_RUNNER_VERSION:-$(curl --silent "https://api.github.c
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
+USER docker
+
 ENTRYPOINT ["/bin/bash"]
 CMD ["entrypoint.sh"]

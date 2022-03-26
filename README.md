@@ -61,7 +61,7 @@ GITHUB_ACCESS_TOKEN=...
 **NOTE:** Do not use quoted strings for `.env` values!
 
 ## Resource Limits
-If you want to add resource limits to the GitHub runner, you can uncomment the following in the `docker-compose.yml`:
+If you want to add resource limits to the GitHub runner, you can add the following to the `docker-compose.yml`:
 
 ```
 services:

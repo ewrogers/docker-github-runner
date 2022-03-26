@@ -5,12 +5,6 @@ services:
     container_name: github-runner
     image: ewrogers/github-runner
     build: .
-# If you want resource limits, uncomment this and adjust as necessary
-#    deploy:
-#      resources:
-#        limits:
-#          cpus: '2'
-#          memory: 4G
     environment:
       RUNNER_NAME: "${RUNNER_NAME}"
       # RUNNER_REPOSITORY_URL: "${RUNNER_REPOSITORY_URL}"
@@ -18,5 +12,10 @@ services:
       RUNNER_LABELS: "${RUNNER_LABELS}"
       GITHUB_ACCESS_TOKEN: "${GITHUB_ACCESS_TOKEN}"
     volumes:
+      - runner_data:/home/runner
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
+
+volumes:
+  runner_data:
+    name: github_runner_data
