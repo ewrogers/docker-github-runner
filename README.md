@@ -60,5 +60,21 @@ GITHUB_ACCESS_TOKEN=...
 
 **NOTE:** Do not use quoted strings for `.env` values!
 
+## Resource Limits
+If you want to add resource limits to the GitHub runner, you can uncomment the following in the `docker-compose.yml`:
+
+```
+services:
+  runner:
+    # other properties...
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+```
+
+Then start via `docker-compose --compatibility up -d` to enforce the resource limits on the runner.
+
 ## Automatic Removal
 The `entrypoint.sh` script automatically removes the runner when it exits.

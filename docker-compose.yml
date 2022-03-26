@@ -5,6 +5,12 @@ services:
     container_name: github-runner
     image: ewrogers/github-runner
     build: .
+# If you want resource limits, uncomment this and adjust as necessary
+#    deploy:
+#      resources:
+#        limits:
+#          cpus: '2'
+#          memory: 4G
     environment:
       RUNNER_NAME: "${RUNNER_NAME}"
       # RUNNER_REPOSITORY_URL: "${RUNNER_REPOSITORY_URL}"
