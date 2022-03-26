@@ -60,6 +60,10 @@ GITHUB_ACCESS_TOKEN=...
 
 **NOTE:** Do not use quoted strings for `.env` values!
 
+## File Access (Artifacts)
+In order for the runner to see files in steps that are run within containers, the `RUNNER_WORK_DIRECTORY` must match both on the host and container mount side.
+
+By default, this is set to mount `/tmp/github-runner` and use `/tmp/github-runner/_work` as the work directory.
 ## Resource Limits
 If you want to add resource limits to the GitHub runner, you can add the following to the `docker-compose.yml`:
 
