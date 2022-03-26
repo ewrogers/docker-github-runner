@@ -68,7 +68,7 @@ else
         --unattended
 
    cleanup() {
-      echo "Removing runner..."
+      echo "Removing runner from GitHub..."
       ./config.sh remove --unattended --token ${RUNNER_TOKEN}
     }
 

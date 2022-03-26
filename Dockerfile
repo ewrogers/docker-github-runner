@@ -1,4 +1,6 @@
-FROM debian:bullseye-slim
+ARG FROM=debian:bullseye-slim
+FROM ${FROM}
+
 LABEL org.opencontainers.image.authors="ewrogers@gmail.com"
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -57,7 +59,7 @@ RUN curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOS
 RUN mkdir -p ${HOME}
 WORKDIR ${HOME}
 
-# Install Github runner package
+# Install GitHub runner package
 RUN GH_RUNNER_VERSION=${GH_RUNNER_VERSION:-$(curl --silent "https://api.github.com/repos/actions/runner/releases/latest" | grep tag_name | sed -E 's/.*"v([^"]+)".*/\1/')} \
     && curl -L -O https://github.com/actions/runner/releases/download/v${GH_RUNNER_VERSION}/actions-runner-linux-x64-${GH_RUNNER_VERSION}.tar.gz \
     && tar -zxf actions-runner-linux-x64-${GH_RUNNER_VERSION}.tar.gz \
