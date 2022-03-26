@@ -6,11 +6,11 @@ services:
     image: ewrogers/github-runner
     build: .
     environment:
-      - RUNNER_NAME
-      # - RUNNER_REPOSITORY_URL
-      - RUNNER_ORGANIZATION_URL
-      - RUNNER_LABELS
-      - GITHUB_ACCESS_TOKEN
+      RUNNER_NAME: "${RUNNER_NAME}"
+      # RUNNER_REPOSITORY_URL: "${RUNNER_REPOSITORY_URL}"
+      RUNNER_ORGANIZATION_URL: "${RUNNER_ORGANIZATION_URL}"
+      RUNNER_LABELS: "${RUNNER_LABELS}"
+      GITHUB_ACCESS_TOKEN: "${GITHUB_ACCESS_TOKEN}"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
