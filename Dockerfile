@@ -56,8 +56,7 @@ RUN curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOS
     chmod +x /usr/local/bin/docker-compose
 
 # Make runner home directory
-RUN useradd -m docker && \
-    mkdir -p ${HOME} \
+RUN mkdir -p ${HOME}
 
 WORKDIR ${HOME}
 
@@ -74,8 +73,6 @@ RUN GH_RUNNER_VERSION=${GH_RUNNER_VERSION:-$(curl --silent "https://api.github.c
 # Copy entrypoint script and make executable
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
-
-USER docker
 
 ENTRYPOINT ["/bin/bash"]
 CMD ["entrypoint.sh"]
