@@ -56,7 +56,9 @@ RUN curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOS
     chmod +x /usr/local/bin/docker-compose
 
 # Make runner home directory
-RUN mkdir -p ${HOME}
+RUN useradd -m docker && \
+    mkdir -p ${HOME} \
+
 WORKDIR ${HOME}
 
 # Install GitHub runner package
