@@ -48,7 +48,17 @@ $ docker run -d \
 
 ## Docker Compose
 Alternatively, you can run via `docker-compose up -d`.
-Create an `.env` file with the values above, they will be passed to the container.
+
+Create an `.env` file with the values above, they will be passed to the container:
+
+```dotenv
+RUNNER_NAME=self-hosted-runner
+RUNNER_REPOSITORY_URL=https://github.com/user/repository
+RUNNER_LABELS=self-hosted,linux,x64
+GITHUB_ACCESS_TOKEN=...
+```
+
+**NOTE:** Do not use quoted strings for `.env` values!
 
 ## Automatic Removal
 The `entrypoint.sh` script automatically removes the runner when it exits.
